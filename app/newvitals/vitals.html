@@ -1,0 +1,133 @@
+<div class="col-lg-3">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+             <h4 class="panel-title inline">{{currentPatient.title.name + ' ' + currentPatient.title.last}}
+                     <div ng-click="deletePatient($index)" class="pull-right close-button"><strong>x</strong></div>
+                </h4> 
+        </div>
+        <div class="panel-body">
+            <form name="nnewVisit" novalidate>
+                <div role="form-inline">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <label><strong>Date</strong>
+                                </label>
+                            </div>
+                            <input type="text" ng-model="currentPatient.date" class="form-control" id="fRettext" value="{{date | date:'shortDate'}}">
+                        </div>
+                    </div>
+                </div>
+                <div role="form-inline">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <label><strong>Time in</strong>
+                                </label>
+                            </div>
+                            <input type="text" ng-model="currentPatient.timeIn" class="form-control" id="fRettext" value="{{date | date:'shortTime'}}">
+                        </div>
+                    </div>
+                </div>
+                <div role="form-inline">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <label><strong>Time out</strong>
+                                </label>
+                            </div>
+                            <input type="text" ng-model="currentPatient.timeOut" class="form-control" id="fRettext" value="{{date + 30 | date:'shortTime'}}">
+                        </div>
+                    </div>
+                </div>
+                <div role="form-inline">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <label><strong>BSL</strong>
+                                </label>
+                            </div>
+                            <select class="form-control" ng-model="currentPatient.bSL" ng-options="bloodSL for bloodSL in ranges.bSLRange">
+                                <option value="">-</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div role="form-inline">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <label><strong>Respiration</strong>
+                                </label>
+                            </div>
+                            <select class="form-control" ng-model="currentPatient.resp" ng-options="resp for resp in ranges.respirationRange">
+                                <option value="">-</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div role="form-inline">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <label><strong>B. Pressure</strong>
+                                </label>
+                            </div>
+                            <select class="form-control" ng-model="currentPatient.sys" ng-options="sys for sys in ranges.systolicRange">
+                                <option value="">-</option>
+                            </select>
+
+                            <div class="input-group-addon">
+                                <label><strong>/</strong>
+                                </label>
+                            </div>
+                            <select class="form-control" ng-model="currentPatient.dias" ng-options="dias for dias in ranges.diastolicRange">
+                                <option value="">-</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div role="form-inline">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <label><strong>Injection site</strong>
+                                </label>
+                            </div>
+                            <select class="form-control" ng-model="currentPatient.site" ng-options="site for site in patient.injection">
+                                <option value="">-</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div role="form-inline">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <label><strong>Pulse</strong>
+                                </label>
+                            </div>
+                            <select class="form-control" ng-model="currentPatient.puls" ng-options="puls for puls in ranges.pulseRange">
+                                <option value="">-</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div role="form-inline">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <label><strong>Temperature</strong>
+                                </label>
+                            </div>
+                            <select class="form-control" ng-model="currentPatient.temp" ng-options="temp for temp in ranges.temperatureRange">
+                                <option value="">-</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <p>{{currentPatient}}</p>
+        </div>
+    </div>
+</div>
