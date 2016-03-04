@@ -1,0 +1,37 @@
+<div class="container-fluid" ng-controller="MenuController">
+    <div class="row">
+    <div class="col-lg-2" id="menubar">
+        <ul class="nav nav-pills nav-stacked" ng-repeat="tab in menu.getOptionsList()">
+            <li ng-class="{active : menu.isOptionSelected($index)}">
+                 <a href ng-click="menu.setOption($index)">{{menu.getOptionTitle($index)}}</a>
+            </li>
+        </ul>
+    </div>{{menu.getPath()}}
+    <!-- End main menu-->
+    <div class="col-lg-10 " id="content-panel">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                 <h3 class="panel-title text-center"><strong>{{menu.getOptionI()}}</strong></h3>
+            </div>
+            <div class="panel-body">
+                <div class="newpatient" ng-include="menu.getPath()">
+                </div>
+            </div>
+            <!-- Show each panel-->
+
+            <div class="panel panel-footer navbar-fixed-bottom">
+                <nav>
+                    <ul class="pager">
+                        <li ng-hide="menu.firstOption()" ng-click="menu.optionBackward()"><a href="#"><strong>Previous</strong></a>
+                        </li>
+                        <li ng-hide="menu.lastOption()" ng-click="menu.optionForward()"><a href="#"><strong>Next</strong></a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- Navigation buttons -->
+            </div>
+        </div>
+    </div>
+    <!-- End main menu-panels -->
+    </div>
+</div>

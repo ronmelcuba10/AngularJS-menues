@@ -1,0 +1,30 @@
+<div class="container-fluid" ng-controller="NewVisitController">
+    <div class="row">
+        <div class="col-lg-5 col-centered">
+            <div class="well">
+                <div role="form-inline">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <label><strong>Patient</strong>
+                                </label>
+                            </div>
+                            <select class="form-control" ng-model="currentPatient" ng-options="patient.name for patient in patients"></select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" ng-click="addPatient()">
+                         <strong>Enter values</strong>
+                    </button>
+                    {{currentPatient === null}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <ul class="nav">
+            <li ng-repeat="currentPatient in patientsVitals" id="currentPatient{{currentPatient.id}}" class="newvisit" ng-include="visitPath">
+            </li>
+        </ul>
+    </div>
+    
+</div>
