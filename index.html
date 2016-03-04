@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html ng-app="reports">
+
+    <head>
+        <!-- CSS -->
+        <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/mycss.css">
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+        <!-- AngularJS -->
+        <script type="text/javascript" src="assets/libs/angular.min.js"></script>
+        <script type="text/javascript" src="assets/libs/angular-animate.min.js"></script>
+    </head>
+
+    <body>
+        <div class="container-fluid panel" ng-controller="NavigationController">
+           {{mainmenu.getPath()}}
+            <div>
+                <nav class="navbar navbar-dark bg-primary">
+                    <a class="navbar-brand" href="#">
+                        <img alt="Brand" height="20px" src="assets/img/Logo.PNG" />
+                    </a>
+                    <ul class="nav navbar-nav" ng-repeat="division in mainmenu.getOptionsList()">
+                        <li class="nav-item active : mainmenu.isOptionSelected($index)}">
+                             <a class="nav-link" style="color:white" href ng-click="mainmenu.setOption($index)">{{division}} <span class="sr-only">(current)</span></a>
+                        </li>
+                    </ul>    
+                    <form class="form-inline pull-xs-right">
+                        <input class="form-control" type="text" placeholder="Search">
+                        <button class="btn btn-secondary-outline" style="color:primary" type="submit">Search</button>
+                    </form>
+                </nav>
+            </div>
+            <!-- End heading navigation bar-->
+            
+            <!-- Divisions with their panels -->
+            
+            <div class="fixed-panel ">
+                <div class="slide-animation-container">
+                    <div class="vertical-flip" ng-include="mainmenu.getPath()"></div>    
+                </div>
+            </div>
+            <!-- End Menu and Panels-->
+            
+            <!-- footer -->
+            <div class="footer navbar-fixed-bottom">
+            </div>
+            <!-- End main footer-->
+        </div>
+        <!-- Modules -->
+        <script type="text/javascript" src="app/app.js"></script>
+        <!--Factories-->
+        <script type="text/javascript" src="app/Factories.js"></script>
+        <!--Services-->
+        <script type="text/javascript" src="app/Services.js"></script>
+        <!-- Controllers -->
+        <script type="text/javascript" src="app/Controllers.js"></script>
+        
+    </body>
