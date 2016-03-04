@@ -1,0 +1,18 @@
+<div ng-controller="InjectionController">{{steps.progress()}}
+    <div class="well">
+        <div ng-include="steps.getPath()">
+        </div>
+        <nav>
+            <ul class="pager">
+                <li class="previous" ng-hide="steps.firstOption()" ng-click="steps.optionBackward()"><a href="#"><span aria-hidden="true">&larr;</span> Back</a>
+                </li>
+                <li class="next" ng-hide="steps.lastOption()" ng-click="steps.optionForward()"><a href="#">Next <span aria-hidden="true">&rarr;</span></a>
+                </li>
+            </ul>
+        </nav>
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width:{{steps.progress() | percentage:0}}">{{steps.progress() | percentage:0}}
+            </div>
+        </div>
+    </div>
+</div>
