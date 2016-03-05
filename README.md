@@ -1,4 +1,4 @@
-# AngularJS-menues
+# AngularJS-menus
 
 Online menus(works better in Google Chrome)
 ##Languages
